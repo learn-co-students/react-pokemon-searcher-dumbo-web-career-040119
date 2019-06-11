@@ -1,4 +1,9 @@
-.App {
+.button-container {
+  display: flex;
+  justify-content: center;
+  }
+
+  .App {
   text-align: center;
 }
 
