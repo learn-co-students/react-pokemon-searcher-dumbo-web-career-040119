@@ -32,7 +32,7 @@ class PokemonPage extends React.Component {
       })
     })
   }
-
+  
   handleAddPokemon = (newPokemon) => {
     // console.log(newPokemon)
     // console.log(...this.state.pokemon)
@@ -79,8 +79,9 @@ class PokemonPage extends React.Component {
       addPokemon: !this.state.addPokemon
     })
   }
+
   render() {
-    console.log(this.state.pokemon)
+    // console.log(this.state.pokemon)
     return (
       <div>
         <h1>Pokemon Searcher</h1>
@@ -89,6 +90,8 @@ class PokemonPage extends React.Component {
         <br />
         <Button onClick={this.handleClick} positive>Add Pokemon</Button>
         <br/>
+        {/* <Button onClick={this.handleSortByName}>Sort By Name</Button> */}
+        {/* <Button onClick={this.handleSortByHP}>Sort By HP</Button> */}
         {this.state.loading ?
 
         <Fragment>
