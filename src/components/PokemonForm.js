@@ -2,22 +2,21 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 
 class PokemonForm extends React.Component {
-  constructor() {
-  super()
-
-  this.state = {
+ 
+  state = {
     name: '',
     hp: '',
     frontUrl: '',
     backUrl: ''
   }
-}
 
 onInputChange = (e) => {
   this.setState({
     [e.target.name]: e.target.value
   })
 }
+
+
 
 handleSubmit = (e) => {
   e.preventDefault()
@@ -30,16 +29,42 @@ handleSubmit = (e) => {
 }
 
 render() {
-  console.log(this.state)
+  // console.log(this.state)
+  let {name, hp, frontUrl, backUrl} = this.state
+  
   return (
     <div>
       <h3>Add a Pokemon!</h3>
       <Form onSubmit={this.handleSubmit}>
         <Form.Group widths="equal">
-          <Form.Input onChange={this.onInputChange} fluid label="Name" placeholder="Name" name="name" value={this.state.name} />
-          <Form.Input onChange={this.onInputChange} fluid label="hp" placeholder="hp" name="hp" value={this.state.hp} />
-          <Form.Input onChange={this.onInputChange} fluid label="Front Image URL" placeholder="url" name="frontUrl" value={this.state.frontUrl} />
-          <Form.Input onChange={this.onInputChange} fluid label="Back Image URL" placeholder="url" name="backUrl" value={this.state.backUrl} />
+          <Form.Input 
+            onChange={this.onInputChange} 
+            fluid label="Name" 
+            placeholder="Name" 
+            name="name" 
+            value={name} 
+          />
+          <Form.Input 
+            onChange={this.onInputChange} 
+            fluid label="hp" 
+            placeholder="hp" 
+            name="hp" 
+            value={hp} 
+          />
+          <Form.Input 
+            onChange={this.onInputChange} 
+            fluid label="Front Image URL" 
+            placeholder="url" 
+            name="frontUrl" 
+            value={frontUrl} 
+          />
+          <Form.Input 
+            onChange={this.onInputChange} 
+            fluid label="Back Image URL" 
+            placeholder="url" 
+            name="backUrl" 
+            value={backUrl} 
+          />
         </Form.Group>
         <Form.Button>Submit</Form.Button>
       </Form>

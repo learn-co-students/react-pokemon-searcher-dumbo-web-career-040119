@@ -7340,6 +7340,34 @@
         "back": "x"
       },
       "id": 207
+    },
+    {
+      "name": "sc",
+      "stats": [
+        {
+          "value": "100",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "what",
+        "back": "what"
+      },
+      "id": 208
+    },
+    {
+      "name": "iii",
+      "stats": [
+        {
+          "value": "100",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "what",
+        "back": "what"
+      },
+      "id": 209
     }
   ]
 }

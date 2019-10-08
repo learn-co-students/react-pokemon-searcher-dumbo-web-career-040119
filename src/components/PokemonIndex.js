@@ -2,7 +2,6 @@ import React from 'react'
 import PokemonCollection from './PokemonCollection'
 import PokemonForm from './PokemonForm'
 import { Search } from 'semantic-ui-react'
-import _ from 'lodash'
 
 class PokemonPage extends React.Component {
 
@@ -43,11 +42,13 @@ state={
   }
 
   searchChange = (e) => {
+    // console.log(e.target.value)
     this.setState({
       input: e.target.value
     })
   }
 
+  // we need to first find a stat + take its value and then compare it to another pokemon's stat.value
   sortHp = () => {
     const filteredPok = this.state.pokemons.sort((pok1, pok2) => {
       return pok1.stats.find(stat => stat.name === "hp").value - pok2.stats.find(stat => stat.name === "hp").value
@@ -57,6 +58,7 @@ state={
     })
   }
 
+  // here we don't need to do that because name is not a nested object
   sortName = () => {
     const filteredPok = this.state.pokemons.sort((pok1, pok2) => {
       return pok1.name.localeCompare(pok2.name)
@@ -68,15 +70,17 @@ state={
 
 
   render() {
+    let {input, pokemons} = this.state
+
     return (
       <div>
         <h1>Pokemon Searcher</h1>
         <br />
         <button onClick={this.sortHp}>Sort by HP</button>
         <button onClick={this.sortName}>Sort by name</button>
-        <Search onSearchChange={this.searchChange} value={this.state.input} showNoResults={false} />
+        <Search onSearchChange={this.searchChange} value={input} showNoResults={false} />
         <br />
-        <PokemonCollection input={this.state.input} pokemons={this.state.pokemons} />
+        <PokemonCollection input={input} pokemons={pokemons} />
         <br />
         <PokemonForm postPokemon={this.postPokemon}/>
       </div>
